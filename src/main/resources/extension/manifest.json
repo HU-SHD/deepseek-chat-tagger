@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "DeepSeek Chat Tagger",
+  "version": "1.0.0",
+  "description": "为 DeepSeek 网页版对话列表添加三态颜色标签。",
+  "permissions": ["storage"],
+  "host_permissions": ["https://chat.deepseek.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": [
+        "content/tag-state.js",
+        "content/selector-resolver.js",
+        "content/content.js"
+      ],
+      "css": ["styles/injected.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "deepseek-chat-tagger@your-domain.com",
+      "strict_min_version": "109.0"
+    }
+  }
+}

@@ -8,10 +8,41 @@
     <artifactId>deepseek-chat-tagger</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Deepseek Chat Tagger</name>
+    <description>为Deepseek网页版增加三态颜色标签的插件</description>
+
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <extension.source.dir>${project.basedir}/src/main/resources/extension</extension.source.dir>
+        <extension.output.dir>${project.build.directory}/extension</extension.output.dir>
     </properties>
 
+    <build>
+        <plugins>
+            <!-- 将扩展源文件复制到 target/extension 目录 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-extension-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${extension.output.dir}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${extension.source.dir}</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
