@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "DeepSeek Chat Tagger",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "为 DeepSeek 网页版对话列表添加三态颜色标签。",
   "permissions": ["storage"],
   "host_permissions": ["https://chat.deepseek.com/*"],
